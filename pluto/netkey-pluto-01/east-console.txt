@@ -1,5 +1,5 @@
 east:~#
- TESTNAME=basic-pluto-01
+ TESTNAME=netkey-pluto-01
 east:~#
  source /testing/pluto/bin/eastlocal.sh
 east:~#
