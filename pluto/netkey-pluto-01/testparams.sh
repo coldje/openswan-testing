@@ -4,7 +4,7 @@ TEST_PURPOSE=regress
 TEST_PROB_REPORT=0
 TEST_TYPE=umlplutotest
 
-TESTNAME=basic-pluto-01
+TESTNAME=netkey-pluto-01
 EASTHOST=east
 WESTHOST=west
 
@@ -25,7 +25,6 @@ REF_CONSOLE_FIXUPS="kern-list-fixups.sed nocr.sed"
 REF_CONSOLE_FIXUPS="$REF_CONSOLE_FIXUPS east-prompt-splitline.pl"
 REF_CONSOLE_FIXUPS="$REF_CONSOLE_FIXUPS script-only.sed"
 REF_CONSOLE_FIXUPS="$REF_CONSOLE_FIXUPS cutout.sed"
-REF_CONSOLE_FIXUPS="$REF_CONSOLE_FIXUPS wilog.sed"
 REF_CONSOLE_FIXUPS="$REF_CONSOLE_FIXUPS klips-debug-sanitize.sed"
 REF_CONSOLE_FIXUPS="$REF_CONSOLE_FIXUPS ipsec-setup-sanitize.sed"
 REF_CONSOLE_FIXUPS="$REF_CONSOLE_FIXUPS pluto-whack-sanitize.sed"
@@ -37,10 +36,10 @@ WEST_INIT_SCRIPT=westinit.sh
 
 WEST_RUN_SCRIPT=westrun.sh
 
-EAST_FINAL_SCRIPT=final.sh
-WEST_FINAL_SCRIPT=final.sh
+EAST_FINAL_SCRIPT=../basic-pluto-01/final.sh
+WEST_FINAL_SCRIPT=../basic-pluto-01/final.sh
 
-NETJIG_EXTRA=debugpublic.txt
+NETJIG_EXTRA=../basic-pluto-01/debugpublic.txt
 
 
 
