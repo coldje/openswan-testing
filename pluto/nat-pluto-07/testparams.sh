@@ -3,7 +3,7 @@
 TEST_PURPOSE=goal
 TEST_TYPE=umlXhost
 
-TESTNAME=nat-pluto-06
+TESTNAME=nat-pluto-07
 
 XHOST_LIST="NIC NORTH EAST"
 
@@ -34,4 +34,6 @@ REF_NORTH_CONSOLE_OUTPUT=north-console.txt
 NICHOST=nic
 NIC_INIT_SCRIPT=nicinit.sh
 
-NETJIG_EXTRA=debugpublic.txt
+NETJIG_EXTRA=../nat-pluto-06/debugpublic.txt
+
+
