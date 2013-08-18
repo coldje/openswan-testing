@@ -760,8 +760,12 @@ klipstest() {
     echo '*******  KLIPS RUNNING' $testdir${KLIPS_MODULE} '*******'
 
     export UML_BRAND="$$"
-    ( preptest $testdir klipstest && netjigtest )
-    stat=$?
+    if ( preptest $testdir klipstest && netjigtest )
+    then
+        stat=0
+    else
+        stat=$?
+    fi
 
     recordresults $testdir "$testexpect" "$stat" $testdir${KLIPS_MODULE} ""
 }
@@ -1435,8 +1439,13 @@ kernel_patch_test() {
     echo '***** KERNEL PATCH RUNNING' $testdir '*******'
 
     export UML_BRAND="$$"
-    ( preptest $testdir kernel_patch_test && do_kernel_patch_test )
-    stat=$?
+    if ( preptest $testdir kernel_patch_test && do_kernel_patch_test )
+    then
+        stat=0
+    else
+        stat=$?
+    fi
+
     if [ $stat = 99 ]
     then
         echo Test missing parts.
@@ -1772,7 +1781,12 @@ umlXhost() {
     echo '***** UML 3HOST RUNNING' $testdir '*******'
 
     export UML_BRAND="$$"
-    ( preptest $testdir umlXhost && do_umlX_test )
+    if ( preptest $testdir umlXhost && do_umlX_test )
+    then
+        stat=0
+    else
+        stat=$?
+    fi
     stat=$?
 
     recordresults $testdir "$testexpect" "$stat" $testdir ""
