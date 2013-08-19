@@ -195,10 +195,9 @@ setup_make $BUILD_MODULES >>$UMLMAKE
 # now, execute the Makefile that we have created!
 echo "info: make-uml.sh:${LINENO} in `pwd`"
 echo " and MAKE=${MAKE}"
-MAKE_DEBUG="--debug=b";
+#MAKE_DEBUG="--debug=b";
 # explicit -j1 to override any -jX in environment.
 echo ${MAKE:-make} ${MAKE_DEBUG} -C ${POOLSPACE} -j1  ${REGULARHOSTS}
-env
 MAKEFLAGS= ${MAKE:-make} ${MAKE_DEBUG} -C ${POOLSPACE} -j1  ${REGULARHOSTS}
 
 # now, copy the kernel, apply the UML patches.
