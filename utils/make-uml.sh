@@ -195,9 +195,11 @@ setup_make $BUILD_MODULES >>$UMLMAKE
 # now, execute the Makefile that we have created!
 echo "info: make-uml.sh:${LINENO} in `pwd`"
 echo " and MAKE=${MAKE}"
-#MAKE_DEBUG="--debug=b";
+MAKE_DEBUG="--debug=b";
 # explicit -j1 to override any -jX in environment.
-${MAKE:-make} ${MAKE_DEBUG} -C ${POOLSPACE} -j1  ${REGULARHOSTS}
+echo ${MAKE:-make} ${MAKE_DEBUG} -C ${POOLSPACE} -j1  ${REGULARHOSTS}
+env
+MAKEFLAGS= ${MAKE:-make} ${MAKE_DEBUG} -C ${POOLSPACE} -j1  ${REGULARHOSTS}
 
 # now, copy the kernel, apply the UML patches.
 # then, make Openswan patches as well.
@@ -271,7 +273,7 @@ cd $OPENSWANSRCDIR || exit 1
 make ${WERROR:-WERROR=-Werror} USE_OBJDIR=true USE_IPSECPOLICY=true programs
 
 # now, execute the Makefile that we have created!
-cd $POOLSPACE && make -j1 $OPENSWANHOSTS
+MAKEFLAGS= ${MAKE:-make} ${MAKE_DEBUG} -C ${POOLSPACE} -j1 ${OPENSWANHOSTS}
 
 echo "###  bottom exiting make-umls.sh running at pwd: `pwd`"
 
